@@ -21,7 +21,7 @@ npx serve webPage
 
 1. In the repo on GitHub: **Settings → Pages**.
 2. **Source:** `Deploy from a branch`.
-3. **Branch:** `main`, **Folder:** `/webPage`.
+3. **Branch:** `main`, **Folder:** `/ (root)`.
 4. Add `letsplayapp.ca` as the custom domain and follow GitHub's [custom-domain DNS instructions](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site) to point the apex domain at GitHub Pages.
 
 ## Things to update before launch
