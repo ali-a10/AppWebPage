@@ -123,25 +123,24 @@ p {
 }
 
 .nav__inner {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   min-height: 0;
   padding: 2px 0;
 }
 
 .nav__brand {
-  grid-column: 2;
-  justify-self: center;
   display: inline-flex;
   align-items: center;
   line-height: 0;
   margin: 0;
 }
 
-.nav__link {
-  grid-column: 3;
-  justify-self: end;
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 90px;
 }
 
 .nav__brand img {
@@ -419,6 +418,12 @@ p {
   font-size: 14px;
 }
 
+.footer__links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
 .footer__inner a {
   color: var(--text-muted);
   font-weight: 600;
@@ -427,6 +432,18 @@ p {
 .footer__inner a:hover {
   color: var(--teal);
   text-decoration: none;
+}
+
+/* ============ Contact page ============ */
+.contact-email-row {
+  text-align: center;
+}
+
+.contact-email {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--teal);
 }
 
 /* ============ Privacy page ============ */
@@ -533,6 +550,9 @@ p {
   .nav__brand img {
     width: 80px;
     height: 80px;
+  }
+  .nav__links {
+    gap: 22px;
   }
   .section {
     padding: 56px 0;
