@@ -42,6 +42,39 @@
           basketball. Or host your own and fill the roster in minutes.
         </p>
 
+        <!--
+          WAITLIST FORM — posts to MailerLite.
+          assets/waitlist.js intercepts the submit so we can show an inline
+          "thank you" instead of redirecting. The action/target below are a
+          no-JS fallback that still works if scripting is disabled.
+        -->
+        <form
+          class="waitlist"
+          id="waitlist"
+          action="https://assets.mailerlite.com/jsonp/2427023/forms/190014624131712066/subscribe"
+          method="post"
+          target="_blank"
+        >
+          <label class="visually-hidden" for="waitlist-email">Email address</label>
+          <input
+            class="waitlist__input"
+            id="waitlist-email"
+            type="email"
+            name="fields[email]"
+            placeholder="you@email.com"
+            autocomplete="email"
+            required
+          />
+          <button class="waitlist__btn" type="submit">Join the waitlist</button>
+          <!-- Required by MailerLite -->
+          <input type="hidden" name="ml-submit" value="1" />
+          <input type="hidden" name="anticsrf" value="true" />
+        </form>
+        <p class="waitlist__note">Get an email the moment we launch — no spam.</p>
+        <p class="waitlist__success" hidden>
+          🎉 You're on the list! Check your inbox to confirm.
+        </p>
+
         <!-- Pre-launch tagline. Replace with a .store-row of official App Store + Google Play badges once the apps are live. -->
         <p class="coming-soon">Coming soon to iOS and Android</p>
       </div>
@@ -182,5 +215,7 @@
         </nav>
       </div>
     </footer>
+
+    <script src="./assets/waitlist.js" defer></script>
   </body>
 </html>
