@@ -466,7 +466,7 @@ p {
   max-width: 520px;
   font-size: 19px;
   font-weight: 700;
-  color: var(--mint);
+  color: var(--text-on-dark);
 }
 
 .visually-hidden {
