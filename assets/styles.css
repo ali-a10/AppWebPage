@@ -641,6 +641,10 @@ p {
     width: 80px;
     height: 80px;
   }
+  .nav__inner {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
   .nav__links {
     gap: 22px;
   }
