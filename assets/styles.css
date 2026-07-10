@@ -536,6 +536,50 @@ p {
   color: var(--teal);
 }
 
+/* ============ Payouts-complete page ============ */
+/* Shown in a small in-app browser sheet after Stripe Connect onboarding
+   returns/refreshes. Status-neutral: it never claims success. */
+.payouts {
+  min-height: calc(100vh - 137px); /* viewport minus nav + footer */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 48px var(--gutter);
+}
+
+.payouts__card {
+  max-width: 460px;
+}
+
+.payouts__icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 24px;
+  color: var(--teal);
+}
+
+.payouts h1 {
+  font-size: 34px;
+  margin-bottom: 14px;
+}
+
+.payouts p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+@media (max-width: 480px) {
+  .payouts h1 {
+    font-size: 28px;
+  }
+  .payouts p {
+    font-size: 17px;
+  }
+}
+
 /* ============ Privacy page ============ */
 .legal {
   max-width: 760px;
