@@ -580,6 +580,83 @@ p {
   }
 }
 
+/* ============ Auth hand-off pages ============ */
+/* Fallback landing pages behind the /auth/* Universal Links. Only seen when iOS
+   could not hand the link to the app — desktop, an in-app browser that swallows
+   Universal Links, or a device without LetsPlay installed. */
+.applink {
+  min-height: calc(100vh - 137px); /* viewport minus nav + footer */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 48px var(--gutter);
+}
+
+.applink__card {
+  max-width: 460px;
+}
+
+.applink__icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 24px;
+  color: var(--teal);
+}
+
+.applink h1 {
+  font-size: 34px;
+  margin-bottom: 14px;
+}
+
+.applink p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0 0 14px;
+}
+
+.applink__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  margin-top: 18px;
+  padding: 0 28px;
+  border-radius: var(--r-button);
+  background: var(--teal);
+  color: var(--text-on-dark);
+  font-size: 16px;
+  font-weight: 700;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.applink__btn:hover {
+  text-decoration: none;
+  color: var(--text-on-dark);
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+.applink__note {
+  margin: 20px 0 0;
+  font-size: 15px;
+}
+
+@media (max-width: 480px) {
+  .applink h1 {
+    font-size: 28px;
+  }
+  .applink p {
+    font-size: 17px;
+  }
+  .applink__btn {
+    display: flex;
+    width: 100%;
+    padding: 0 18px;
+  }
+}
+
 /* ============ Privacy page ============ */
 .legal {
   max-width: 760px;

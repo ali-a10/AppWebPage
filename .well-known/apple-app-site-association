@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["7TLXZ556NY.ca.letsplayapp.letsplay"],
+        "components": [{ "/": "/auth/*" }]
+      }
+    ]
+  }
+}
