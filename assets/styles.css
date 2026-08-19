@@ -657,6 +657,52 @@ p {
   }
 }
 
+/* ============ 404 page ============ */
+/* 404.html does double duty: GitHub Pages serves it for genuine typos *and* for
+   every /event/<uuid> share link, since no file exists at those paths. A script
+   in the <head> stamps .is-event on <html> so the right half shows with no
+   flash of the wrong copy. With JS off, the plain not-found copy wins. */
+.nf-event {
+  display: none;
+}
+
+.is-event .nf-event {
+  display: block;
+}
+
+.is-event .nf-generic {
+  display: none;
+}
+
+/* Placeholder strip standing in for the App Store / Google Play badges. */
+.applink__badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.applink__badge-soon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  padding: 0 22px;
+  border: 1.5px dashed var(--border);
+  border-radius: var(--r-button);
+  background: var(--card);
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .applink__badges {
+    flex-direction: column;
+  }
+}
+
 /* ============ Privacy page ============ */
 .legal {
   max-width: 760px;

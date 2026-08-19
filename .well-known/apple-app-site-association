@@ -3,7 +3,10 @@
     "details": [
       {
         "appIDs": ["7TLXZ556NY.ca.letsplayapp.letsplay"],
-        "components": [{ "/": "/auth/*" }]
+        "components": [
+          { "/": "/auth/*", "comment": "Password reset and signup confirmation" },
+          { "/": "/event/*", "comment": "Shared event links" }
+        ]
       }
     ]
   }
