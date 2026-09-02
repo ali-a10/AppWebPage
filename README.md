@@ -1,14 +1,18 @@
 # LetsPlay marketing site
 
-Static HTML/CSS for [letsplayapp.ca](https://letsplayapp.ca). Two pages — the landing page (`index.html`) and the privacy policy (`privacy.html`) — sharing a single stylesheet at `assets/styles.css`. No build step, no JS, no external dependencies.
+Static HTML/CSS for [letsplayapp.ca](https://letsplayapp.ca), sharing a single stylesheet at `assets/styles.css`. No build step, no external dependencies apart from the waitlist form's `assets/waitlist.js`.
+
+`delete-account.html` is the URL Google Play requires under **App content → Data safety → Account deletion**, so it must stay reachable at that path.
 
 ## Local preview
 
-Open either page directly in a browser:
+Open any page directly in a browser:
 
 ```
 webPage/index.html
 webPage/privacy.html
+webPage/contact.html
+webPage/delete-account.html
 ```
 
 …or serve the folder with any static server, e.g.:

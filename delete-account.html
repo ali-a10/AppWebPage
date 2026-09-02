@@ -1,0 +1,377 @@
+<!doctype html>
+<!--
+  Account-deletion page. Google Play requires a URL where someone can request
+  deletion WITHOUT the app installed; this is that URL. Entered in Play Console
+  under App content → Data safety → Account deletion.
+
+  SOURCE OF TRUTH: ACCOUNT_DELETION_POLICY.md in the mobile repo. The "If you've
+  uninstalled the app" panel exists only here — it describes a route with no
+  in-app equivalent. If the deletion behaviour changes, change both.
+
+  The effective date is still a placeholder. Fill it before submitting to Play.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Deleting Your Account — LetsPlay</title>
+    <meta
+      name="description"
+      content="How to delete your LetsPlay account, what we remove, what we have to keep, and what happens to any money involved."
+    />
+    <meta name="theme-color" content="#0D5C63" />
+    <link rel="icon" type="image/png" href="./assets/logo.png" />
+    <link rel="apple-touch-icon" href="./assets/logo.png" />
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body>
+    <!-- =========== Top navigation =========== -->
+    <header class="nav">
+      <div class="container nav__inner">
+        <a class="nav__brand" href="./index.html" aria-label="LetsPlay home">
+          <img src="./assets/logo.png" alt="LetsPlay" />
+        </a>
+        <nav class="nav__links">
+          <a class="nav__link" href="./index.html">Home</a>
+          <a class="nav__link" href="./contact.html">Contact</a>
+          <a class="nav__link" href="./privacy.html">Privacy</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="legal">
+      <div class="legal__head">
+        <h1>Deleting Your LetsPlay Account</h1>
+        <p class="legal__meta">
+          <strong>Effective date:</strong> [TO FILL ON LAUNCH DAY &mdash; ...]
+        </p>
+      </div>
+
+      <p>
+        You can delete your LetsPlay account at any time &mdash; from inside the
+        app, or by email if you no longer have it installed. This page explains
+        exactly what happens when you do: what we remove, what we have to keep,
+        and what happens to any money involved.
+      </p>
+
+      <h2>How to delete your account</h2>
+
+      <ol>
+        <li>Open the <strong>Profile</strong> tab</li>
+        <li>Tap <strong>Delete Account</strong></li>
+        <li>
+          Read the summary, then tap
+          <strong>Permanently Delete My Account</strong>
+        </li>
+      </ol>
+
+      <p>
+        There&rsquo;s no waiting period and no approval step. It happens straight
+        away.
+      </p>
+
+      <div class="legal__note">
+        <p>
+          <strong>This cannot be undone.</strong> We can&rsquo;t restore a
+          deleted account, and we can&rsquo;t recover anything that was removed
+          with it.
+        </p>
+      </div>
+
+      <div class="legal__panel">
+        <h2>If you&rsquo;ve uninstalled the app</h2>
+
+        <p>You don&rsquo;t need to reinstall to delete your account.</p>
+
+        <p>
+          Email
+          <a href="mailto:support@letsplayapp.ca?subject=Delete%20my%20account"
+            ><strong>support@letsplayapp.ca</strong></a
+          >
+          from the email address on your account, with the subject
+          <strong>&ldquo;Delete my account&rdquo;</strong>. Sending from your own
+          address is how we confirm it&rsquo;s you &mdash; that&rsquo;s all we
+          need.
+        </p>
+
+        <p>
+          We&rsquo;ll confirm by reply once it&rsquo;s done: normally within a
+          few days, and always within 30.
+        </p>
+
+        <p>
+          The result is identical to deleting from inside the app. Everything
+          under <a href="#what-we-delete">What we delete</a> is removed, and
+          everything under <a href="#what-we-keep">What we keep, and why</a> is
+          retained, for the reasons given there.
+        </p>
+
+        <p>
+          If you&rsquo;ve lost access to that email address, write to us from any
+          address and tell us the old one. We&rsquo;ll ask a couple of questions
+          to confirm the account is yours before deleting anything.
+        </p>
+      </div>
+
+      <h2>Money is settled first</h2>
+
+      <p>
+        Before your account closes, we deal with anything financial. This happens
+        automatically &mdash; you don&rsquo;t have to cancel or refund anything
+        yourself.
+      </p>
+
+      <h3>Events you were hosting</h3>
+
+      <p>
+        Every upcoming event you host is <strong>cancelled</strong>, and everyone
+        who paid to join is <strong>refunded in full</strong>. They&rsquo;re
+        notified that the event was cancelled.
+      </p>
+
+      <p>
+        This applies to all your upcoming events, including ones starting soon.
+        Normally a host can&rsquo;t cancel an event within 12 hours of its start
+        time &mdash; but if you&rsquo;re leaving, we cancel it anyway, because
+        otherwise players would turn up to a game with no organiser.
+      </p>
+
+      <p>Events that have already happened are not affected.</p>
+
+      <h3>Spots you paid for</h3>
+
+      <p>
+        Spots you hold in other people&rsquo;s upcoming paid events are
+        <strong>refunded in full</strong>, with one exception:
+      </p>
+
+      <div class="legal__note">
+        <p>
+          If the event starts <strong>within 12 hours</strong>, the spot is
+          forfeited and there&rsquo;s no refund.
+        </p>
+      </div>
+
+      <p>
+        This is the same 12-hour rule that applies when you cancel a spot
+        normally. Deleting your account doesn&rsquo;t get around it &mdash; by
+        that point the host is counting on you, and they&rsquo;ve usually already
+        paid for the court or field.
+      </p>
+
+      <h3>Payments you&rsquo;ve disputed</h3>
+
+      <p>
+        If you&rsquo;ve already disputed a payment with your bank, we can&rsquo;t
+        refund it &mdash; the bank&rsquo;s chargeback process controls that money
+        instead. This applies both to spots you paid for and to people who paid
+        to join an event you were hosting.
+      </p>
+
+      <h3>Money you&rsquo;re owed as a host</h3>
+
+      <p>
+        If you&rsquo;ve hosted paid events and you&rsquo;re still waiting to be
+        paid, that money is <strong>still sent to you</strong> &mdash; on the
+        normal schedule, and subject to the same holds that apply to any payout.
+        A payment under dispute, or an event with an open host no-show report, is
+        reviewed before it&rsquo;s released. We keep the connection to your payout
+        account open only for as long as it takes to send the money you&rsquo;re
+        owed, then remove it.
+      </p>
+
+      <p>
+        Payouts are sent approximately 24 hours after the event ends, so a payout
+        may arrive after your account is already gone. It goes to the same bank
+        account it always would have.
+      </p>
+
+      <h2 id="what-we-delete">What we delete</h2>
+
+      <div class="legal__table-scroll">
+        <table>
+          <tbody>
+            <tr>
+              <th scope="row">Your login</th>
+              <td>
+                Your email address, phone number and password are destroyed. You
+                can&rsquo;t sign in again
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Your profile</th>
+              <td>
+                Your name, date of birth, gender, about-me text and favourite
+                sports are erased
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Your photo</th>
+              <td>Your profile picture is deleted from our storage</td>
+            </tr>
+            <tr>
+              <th scope="row">Your spots</th>
+              <td>
+                Your place in <strong>every</strong> event you joined &mdash;
+                free or paid, past and upcoming. Inside the 12-hour window you
+                forfeit the payment but still give up the seat
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Your notifications</th>
+              <td>Every notification we&rsquo;ve sent you</td>
+            </tr>
+            <tr>
+              <th scope="row">Your devices</th>
+              <td>The record that lets us send notifications to your phone</td>
+            </tr>
+            <tr>
+              <th scope="row">People you blocked</th>
+              <td>Your block list &mdash; it no longer applies to anyone</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="what-we-keep">What we keep, and why</h2>
+
+      <p>
+        We&rsquo;re not able to erase everything, because some of it isn&rsquo;t
+        only about you. Here&rsquo;s each thing and the honest reason for it.
+      </p>
+
+      <div class="legal__table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">What</th>
+              <th scope="col">Why we keep it</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">An anonymized record of your account</th>
+              <td>
+                Every personal field is cleared, but the record itself stays so
+                the events, payments and reports connected to it remain intact.
+                It appears throughout the app only as
+                <strong>&ldquo;Deleted user&rdquo;</strong>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Events you hosted</th>
+              <td>
+                Other people joined them and paid for them. Deleting the events
+                would erase their history too. Your name is removed &mdash; you
+                appear as <strong>&ldquo;Deleted user&rdquo;</strong>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Payment records</th>
+              <td>
+                Canadian tax and financial rules require us to keep records of
+                money that moved, for seven years. These stay linked to your
+                anonymized account record, which no longer holds your name, email
+                or phone number
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Reports involving you</th>
+              <td>
+                Reports you made, and reports made about you. Removing these would
+                let someone erase a safety record by deleting and re-registering
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Blocks other people placed on you</th>
+              <td>That&rsquo;s their protection, not yours to remove</td>
+            </tr>
+            <tr>
+              <th scope="row">Feedback you sent us</th>
+              <td>
+                Kept without any link to you, so we don&rsquo;t lose bug reports
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Usage and crash data</th>
+              <td>
+                Never held your name or email &mdash; only an internal account
+                number. It&rsquo;s deleted after 30 days
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Nothing we keep holds your email address, phone number or photo. Two
+        things can still contain your first name: notifications other people
+        already received, and the text someone wrote in a report.
+      </p>
+
+      <h2>What other people see afterwards</h2>
+
+      <ul>
+        <li>
+          In events you hosted, you appear as
+          <strong>&ldquo;Deleted user&rdquo;</strong> with no photo, and your
+          profile can&rsquo;t be opened. In events you only joined, you&rsquo;re
+          removed from the participant list entirely
+        </li>
+        <li>
+          People who blocked you no longer see you in their blocked list &mdash;
+          there&rsquo;s nobody left to unblock
+        </li>
+        <li>
+          Notifications other people already received may still show the first
+          name you had at the time. We can&rsquo;t reach into someone else&rsquo;s
+          notification history to change it
+        </li>
+      </ul>
+
+      <h2>Coming back later</h2>
+
+      <p>
+        Deleting your account frees up your email address, so you can sign up
+        again with it. That creates a <strong>completely new account</strong>
+        &mdash; a fresh profile with none of your old events, history, spots or
+        payment records attached. There&rsquo;s no way to reconnect the two.
+      </p>
+
+      <h2>If something goes wrong</h2>
+
+      <p>
+        If a refund fails for a technical reason, your account is still deleted
+        and we resolve the refund manually afterwards. You don&rsquo;t lose money
+        because a refund didn&rsquo;t go through.
+      </p>
+
+      <h2>Questions</h2>
+
+      <p>
+        Email us at
+        <a href="mailto:support@letsplayapp.ca">support@letsplayapp.ca</a>.
+      </p>
+
+      <footer class="legal__seealso">
+        See also:
+        <a href="./privacy.html">Privacy Policy</a> &middot;
+        <a href="./cancellation.html">Cancellation Policy</a> &middot;
+        <a href="./terms.html">Terms of Service</a>
+      </footer>
+    </main>
+
+    <!-- =========== Footer =========== -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <span>&copy; 2026 LetsPlay Inc.</span>
+        <nav class="footer__links">
+          <a href="./index.html">Home</a>
+          <a href="./contact.html">Contact</a>
+          <a href="./privacy.html">Privacy Policy</a>
+          <a href="./delete-account.html">Delete Account</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
