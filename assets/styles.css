@@ -876,6 +876,11 @@ p {
   padding-left: 22px;
 }
 
+/* Nested bullets (the worked refund example) need room from their parent. */
+.legal li > ul {
+  margin: 6px 0 0;
+}
+
 .legal__seealso {
   margin-top: 48px;
   padding-top: 20px;
