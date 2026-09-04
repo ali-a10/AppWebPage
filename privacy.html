@@ -1,4 +1,10 @@
 <!doctype html>
+<!--
+  Privacy policy.
+
+  SOURCE OF TRUTH: PRIVACY_POLICY.md in the mobile repo. The wording here is a
+  verbatim copy. If the policy changes, change both.
+-->
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -6,7 +12,7 @@
     <title>Privacy Policy — LetsPlay</title>
     <meta
       name="description"
-      content="LetsPlay's privacy policy: what we collect, how we use it, and your rights under Canada's PIPEDA."
+      content="What information LetsPlay collects, how we use it, who we share it with, and the choices you have. Canadian service, PIPEDA and Quebec Law 25."
     />
     <meta name="theme-color" content="#0D5C63" />
     <link rel="icon" type="image/png" href="./assets/logo.png" />
@@ -30,275 +36,599 @@
 
     <main class="legal">
       <div class="legal__head">
-        <h1>Privacy Policy</h1>
-        <!-- <p class="legal__meta">
-          Effective date: June 2, 2026 &middot; Last updated: June 2, 2026
-        </p> -->
+        <h1>LetsPlay Privacy Policy</h1>
+        <p class="legal__meta">
+          <strong>Effective date:</strong> September 4, 2026
+        </p>
       </div>
 
-      <!-- <p>
-        This Privacy Policy explains how <strong>LetsPlay Inc.</strong>
-        (&ldquo;LetsPlay,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or
-        &ldquo;our&rdquo;) collects, uses, and protects your personal information
-        when you use the LetsPlay mobile app and related services (the
-        &ldquo;Service&rdquo;). LetsPlay is a Canadian company and we comply with
-        the <em>Personal Information Protection and Electronic Documents Act</em>
-        (PIPEDA) and applicable provincial privacy laws.
+      <p>
+        This policy explains what information LetsPlay Inc.
+        (&ldquo;LetsPlay&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;) collects
+        when you use the LetsPlay app, how we use it, who we share it with, and
+        the choices you have. We are a Canadian service and handle personal
+        information in accordance with Canada&rsquo;s federal privacy law
+        (PIPEDA) and, for residents of Quebec, Quebec&rsquo;s Law 25.
       </p>
 
-      <h2>1. Who we are</h2>
-      <p>
-        LetsPlay Inc. operates a two-sided marketplace for discovering and
-        joining local pickup sports events in Canada. If you have questions
-        about this policy or how your information is handled, contact us at
-        <a href="mailto:support@letsplayapp.ca">support@letsplayapp.ca</a>.
-      </p> -->
-
-      <!-- <h2>2. Information we collect</h2>
-      <p>
-        We collect only the information we need to run the Service. The table
-        below lists everything we collect at signup or during use, and whether
-        it is required.
-      </p>
-
-      <div class="legal__data">
-        <span class="legal__group">Required at signup</span>
-        <dl>
-          <div>
-            <dt>First and last name</dt>
-            <dd>Used to identify you to hosts and other participants.</dd>
-          </div>
-          <div>
-            <dt>Email address</dt>
-            <dd>Used for login, account recovery, and essential notifications.</dd>
-          </div>
-          <div>
-            <dt>Password</dt>
-            <dd>
-              Stored only as a one-way hash by our authentication provider
-              (Supabase Auth). We never see or store your plaintext password.
-            </dd>
-          </div>
-          <div>
-            <dt>Phone number</dt>
-            <dd>
-              Used for account verification and so hosts can reach you about
-              event logistics.
-            </dd>
-          </div>
-          <div>
-            <dt>Date of birth</dt>
-            <dd>
-              Used to confirm you meet the minimum age to use the Service and
-              to enable age-appropriate events.
-            </dd>
-          </div>
-          <div>
-            <dt>Gender</dt>
-            <dd>
-              Used so hosts can run gender-specific or balanced events when
-              relevant to the sport.
-            </dd>
-          </div>
-        </dl>
-        <span class="legal__group">Optional</span>
-        <dl>
-          <div>
-            <dt>Favorite sports</dt>
-            <dd>Helps us show you events you&rsquo;re likely to enjoy.</dd>
-          </div>
-          <div>
-            <dt>About-me bio</dt>
-            <dd>Free-form text you can choose to share on your profile.</dd>
-          </div>
-          <div>
-            <dt>Device location</dt>
-            <dd>
-              Collected only after you grant your operating system&rsquo;s
-              location permission. Used to sort and surface nearby events. You
-              can revoke this permission at any time in your device settings.
-            </dd>
-          </div>
-        </dl>
+      <div class="legal__note">
+        <p>
+          <strong>The short version:</strong> we collect what&rsquo;s needed to
+          run a sports-meetup app &mdash; your profile, your events, and your
+          payments &mdash; plus basic usage and crash data so we can see
+          what&rsquo;s working and fix what isn&rsquo;t. We don&rsquo;t sell your
+          data, we don&rsquo;t show ads, we don&rsquo;t use advertising or
+          cross-app tracking SDKs, we never record your screen, and your
+          device&rsquo;s GPS location is never sent to our servers.
+        </p>
       </div>
 
-      <h2>3. How we use your information</h2>
+      <h2 id="s1">1. Information we collect</h2>
+
+      <p><strong>Account and profile information (you provide it):</strong></p>
+
       <ul>
-        <li>To create and manage your account.</li>
         <li>
-          To match you with events near you and let hosts and other
-          participants identify you within the app.
-        </li>
-        <li>To verify your age and enforce minimum-age requirements.</li>
-        <li>
-          To enable communication between hosts and participants about event
-          details.
+          Name, email address, phone number, date of birth, and gender (collected
+          at signup);
         </li>
         <li>
-          To process payments for paid events (see the next section on Stripe).
-        </li>
-        <li>
-          To send essential service messages (e.g., booking confirmations,
-          cancellations, and security notices).
-        </li>
-        <li>
-          To detect, prevent, and respond to fraud, abuse, or violations of our
-          terms.
+          Optional profile details: favourite sports, an &ldquo;about me&rdquo;
+          bio, and a profile photo.
         </li>
       </ul>
 
-      <h2>4. Payments via Stripe</h2>
-      <p>
-        Paid event transactions on LetsPlay are processed by
-        <a
-          href="https://stripe.com/en-ca/privacy"
-          rel="noopener"
-          target="_blank"
-          >Stripe, Inc.</a
-        >, a third-party payment processor. When you pay for an event, your
-        payment card details are submitted directly to Stripe and are
-        <strong>never stored on LetsPlay&rsquo;s servers</strong>. We receive
-        only a transaction reference and the amount paid so we can confirm your
-        booking. Stripe&rsquo;s use of your information is governed by
-        Stripe&rsquo;s own privacy policy.
-      </p>
+      <p><strong>Event information (you provide it):</strong></p>
 
-      <h2>5. How we share information</h2>
-      <p>
-        <strong>We do not sell your personal information.</strong> We share
-        information only in these limited situations:
-      </p>
       <ul>
         <li>
-          <strong>With hosts and other participants</strong> of events you
-          create or join — limited to your first name, last initial, profile
-          photo (if any), and the information you choose to put on your
-          profile.
+          Events you create: title, sport, date and time, location, description,
+          participant limit, and price (for paid events);
         </li>
-        <li>
-          <strong>With trusted service providers</strong> who process data on
-          our behalf under contract: Supabase (hosting, database, and
-          authentication) and Stripe (payments). These providers are bound to
-          use your information only to deliver their service to us.
-        </li>
-        <li>
-          <strong>When legally required</strong>, such as a valid court order
-          or to protect the rights, safety, or property of LetsPlay, our users,
-          or the public.
-        </li>
+        <li>Events you join, leave, or cancel, and when.</li>
       </ul>
 
-      <h2>6. Location data</h2>
-      <p>
-        Location data is collected only after you grant your device&rsquo;s
-        location permission, and only while you are using the app to find or
-        host events. We use it to sort events by distance and to surface
-        relevant nearby games. You can revoke location permission at any time
-        in your device&rsquo;s system settings; the app will continue to work
-        without it, but distance-based sorting will be disabled.
-      </p>
+      <p><strong>Location information:</strong></p>
 
-      <h2>7. Data retention</h2>
-      <p>
-        We retain your personal information for as long as your account is
-        active. When you delete your account (see section 9), we delete your
-        profile and personal information from our active systems within
-        <strong>30 days</strong>, except for information we are required to
-        retain for legal, accounting, or fraud-prevention purposes (for
-        example, Stripe transaction records that must be kept under Canadian
-        tax law).
-      </p>
-
-      <h2>8. Your rights under PIPEDA</h2>
-      <p>You have the right to:</p>
       <ul>
         <li>
-          <strong>Access</strong> the personal information we hold about you.
-        </li>
-        <li>
-          <strong>Correct</strong> information that is inaccurate or
-          incomplete.
-        </li>
-        <li>
-          <strong>Withdraw consent</strong> for our use of your information,
-          subject to legal and contractual restrictions (note that withdrawing
-          consent may prevent you from continuing to use the Service).
-        </li>
-        <li>
-          <strong>Lodge a complaint</strong> with the
-          <a
-            href="https://www.priv.gc.ca/en/report-a-concern/"
-            rel="noopener"
-            target="_blank"
-            >Office of the Privacy Commissioner of Canada</a
+          <strong
+            >Your device&rsquo;s GPS location is used only on your phone.</strong
           >
-          if you believe we have not handled your information appropriately.
+          If you enable the &ldquo;Nearest&rdquo; sort and grant location
+          permission, your coordinates are used locally to order the event list
+          &mdash; they are <strong>never sent to or stored on our servers</strong
+          >, and they&rsquo;re discarded when the app restarts.
+        </li>
+        <li>
+          When you type an event location while creating an event, your search
+          text is sent to <strong>Google Places</strong> to show address
+          suggestions (see <a href="#s3">Section 3</a>). The address and map
+          coordinates of the <em>event venue</em> you pick are stored with the
+          event.
+        </li>
+        <li>
+          Separately, our analytics and crash-reporting providers derive a
+          <strong
+            >coarse location (roughly city or region) from your IP address</strong
+          >, as almost all internet services do. That is not your GPS location and
+          is far less precise.
         </li>
       </ul>
-      <p>
-        To exercise any of these rights, email
-        <a href="mailto:support@letsplayapp.ca">support@letsplayapp.ca</a> from
-        the address associated with your account.
-      </p>
 
-      <h2>9. Deleting your account</h2>
-      <p>
-        You can delete your account at any time from inside the LetsPlay app
-        (Profile &rarr; Settings &rarr; Delete account), or by emailing
-        <a href="mailto:support@letsplayapp.ca">support@letsplayapp.ca</a> from
-        the address on your account.
-      </p>
-      <p>
-        When you delete your account, we permanently remove your profile,
-        contact details, and optional information (bio, favorite sports,
-        location) from our active systems within 30 days. Posts and messages
-        you sent to other users may remain visible to those recipients but
-        will be shown as from a deleted account. As noted above, payment
-        records held by Stripe and any records we are legally required to keep
-        will be retained for the minimum period required by law.
-      </p>
+      <p><strong>Payment information (paid events):</strong></p>
 
-      <h2>10. How we protect your information</h2>
       <ul>
-        <li>All traffic to and from the app is encrypted in transit over HTTPS.</li>
         <li>
-          Data at rest is encrypted by our hosting provider, Supabase.
+          Payments are processed by <strong>Stripe</strong>. Your card number
+          goes directly to Stripe &mdash; we never see or store it.
         </li>
         <li>
-          Passwords are stored only as one-way hashes; we cannot recover them
-          and never see them in plaintext.
+          You can also pay with <strong>Apple Pay or Google Pay</strong>. In that
+          case your card details stay with Apple or Google, who pass Stripe a
+          one-time payment token; we never see your card either way.
         </li>
         <li>
-          Access to production systems is restricted to authorized personnel
-          and protected by multi-factor authentication.
+          We store payment records: the event, the amounts (price, fees, total),
+          the payment status (paid, refunded, paid out), and Stripe reference IDs.
+        </li>
+        <li>
+          If you host paid events, Stripe collects identity and banking
+          information directly from you to verify your account and send payouts.
+          That collection is governed by Stripe&rsquo;s privacy policy.
         </li>
       </ul>
 
-      <h2>11. Children</h2>
       <p>
-        LetsPlay is not directed to children under 13. We collect date of
-        birth at signup so we can enforce a minimum-age requirement. If we
-        learn that we have collected personal information from a child under
-        13 without verifiable parental consent, we will delete that
-        information promptly.
+        <strong>Notification information (if you enable push notifications):</strong>
       </p>
 
-      <h2>12. Changes to this policy</h2>
+      <ul>
+        <li>
+          A <strong>push token</strong> &mdash; an identifier your device&rsquo;s
+          operating system issues so we can deliver notifications to it. It holds
+          no personal details, and it&rsquo;s deleted when you sign out or delete
+          your account. Turning off notification categories in the app changes
+          what we send you, not whether your device stays registered &mdash; to
+          stop delivery entirely, turn notifications off for LetsPlay in your
+          device settings.
+        </li>
+        <li>
+          Your <strong>notification preferences</strong> &mdash; the in-app
+          toggles for event reminders and event activity, stored on your profile.
+        </li>
+      </ul>
+
+      <p><strong>Safety and support information:</strong></p>
+
+      <ul>
+        <li>
+          Reports you submit about other users (reason and any details you add),
+          users you block, and feedback you send us (with your app version and
+          platform, so we can reproduce bugs).
+        </li>
+      </ul>
+
+      <p><strong>Usage analytics (collected automatically):</strong></p>
+
       <p>
-        We may update this Privacy Policy from time to time. When we make
-        material changes, we will notify you through an in-app banner or by
-        email to the address on your account before the changes take effect.
-        The &ldquo;Last updated&rdquo; date at the top of this page always
-        reflects the most recent revision.
+        We use <strong>PostHog</strong> to understand how the app is used &mdash;
+        which features people reach, and where they get stuck. We record a fixed,
+        limited list of actions, for example: signing up and completing your
+        profile, opening the app, viewing or creating an event, joining an event,
+        opening and completing (or failing) a payment, cancelling a spot or an
+        event, tapping share on an event, inviting friends to the app, running a
+        search, and submitting feedback.
       </p>
 
-      <h2>13. Contact us</h2>
       <p>
-        Questions, requests, or complaints about privacy at LetsPlay should be
-        sent to
-        <a href="mailto:support@letsplayapp.ca">support@letsplayapp.ca</a>. We
-        aim to respond within 30 days.
-      </p> -->
+        Each of these carries only
+        <strong>identifiers, categories, numbers, and yes/no values</strong>
+        &mdash; for example an event ID, a sport, whether an event was paid, a
+        price, or the number of search results. By design we never attach free
+        text to an analytics event:
+        <strong
+          >your search terms, event titles, descriptions, bios, names, and email
+          addresses are never sent to PostHog.</strong
+        >
+        For searches we record only how many characters you typed and how many
+        results came back &mdash; not what you typed.
+      </p>
+
+      <p>
+        PostHog also records standard technical details with each event (device
+        model, operating system version, app version, locale, timezone, and an
+        IP-derived approximate location) and a device identifier. Once you sign
+        in, these events are linked to your LetsPlay <strong>user ID</strong>
+        &mdash; never to your email or name. When you sign out, the link is
+        cleared.
+      </p>
+
+      <p><strong>Crash and error diagnostics (collected automatically):</strong></p>
+
+      <p>
+        We use <strong>Sentry</strong> to capture crashes and errors. A crash
+        report includes the error and its stack trace, the device model,
+        operating system, app version, and a short trail of the actions leading
+        up to the crash. Sentry is configured <strong>not</strong> to attach your
+        email address or username to reports.
+      </p>
+
+      <p>
+        <strong>What we don&rsquo;t collect:</strong> advertising identifiers,
+        cross-app tracking data, contacts, background location, screen or session
+        recordings, the text of your searches, or anything from your camera roll
+        beyond the single photo you pick as your avatar.
+      </p>
+
+      <h2 id="s2">2. How we use your information</h2>
+
+      <ul>
+        <li>
+          To operate the Service: show events, manage joins and cancellations,
+          process payments and refunds, and send hosts their payouts;
+        </li>
+        <li>
+          To show your public profile to other users (see
+          <a href="#s4">Section 4</a>);
+        </li>
+        <li>
+          To keep the community safe: reviewing reports, enforcing blocks,
+          investigating fraud and Terms violations;
+        </li>
+        <li>
+          To communicate with you about your account and transactions (e.g.
+          confirming your email address when you sign up, payment receipts,
+          password resets);
+        </li>
+        <li>
+          To send you the push notifications you&rsquo;ve enabled &mdash; about
+          your events (someone joining or leaving, a host cancelling, reminders 24
+          hours and 2 hours before an event, and a check-in afterward) and, for
+          hosts, your payouts and any payment issues;
+        </li>
+        <li>To improve the app based on feedback you send us;</li>
+        <li>
+          To understand how the app is used in aggregate &mdash; which features
+          get used, and where people drop out of a flow &mdash; so we can
+          prioritize what to build and fix;
+        </li>
+        <li>To detect, diagnose, and fix crashes and errors;</li>
+        <li>
+          To comply with legal obligations (e.g. tax and financial record-keeping
+          for payments).
+        </li>
+      </ul>
+
+      <p>
+        We do <strong>not</strong> sell or rent your personal information, and we
+        don&rsquo;t use it for third-party advertising.
+      </p>
+
+      <h2 id="s3">3. Who we share information with</h2>
+
+      <p>
+        We share personal information only with the service providers needed to
+        run LetsPlay:
+      </p>
+
+      <div class="legal__table-scroll">
+        <table class="legal__table--3col">
+          <thead>
+            <tr>
+              <th scope="col">Provider</th>
+              <th scope="col">What they process</th>
+              <th scope="col">Why</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Supabase</th>
+              <td>
+                Account, profile, event, and payment-record data; your profile
+                photo
+              </td>
+              <td>
+                Hosts our database, login system, and file storage. Data is stored
+                in the <strong>United States</strong> (AWS <code>us-east-2</code>,
+                Ohio) &mdash; see
+                <a href="#where-stored">&ldquo;Where your information is
+                stored&rdquo;</a> below.
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Stripe</th>
+              <td>
+                Payment details, and identity/banking details for hosts
+              </td>
+              <td>
+                Payment processing, refunds, payouts, and fraud prevention
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Google (Places API)</th>
+              <td>The location text you type when creating an event</td>
+              <td>Address autocomplete suggestions</td>
+            </tr>
+            <tr>
+              <th scope="row">Apple &amp; Google (push delivery)</th>
+              <td>
+                Your device&rsquo;s push token, and each notification&rsquo;s
+                title and body (which may include a first name and an event title)
+              </td>
+              <td>
+                Delivering the push notifications you&rsquo;ve enabled to your
+                device, via Expo&rsquo;s push service and Apple&rsquo;s (APNs) /
+                Google&rsquo;s (FCM) systems
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Apple &amp; Google (wallet payments)</th>
+              <td>
+                A one-time payment token, if you choose Apple Pay or Google Pay
+              </td>
+              <td>Letting you pay without entering card details</td>
+            </tr>
+            <tr>
+              <th scope="row">PostHog</th>
+              <td>
+                Usage events (identifiers, categories, and numbers only), your
+                LetsPlay user ID, device/OS/app version, and IP-derived
+                approximate location
+              </td>
+              <td>
+                Product analytics &mdash; understanding feature usage and
+                drop-off. Processed in PostHog&rsquo;s
+                <strong>United States</strong> cloud region &mdash; see
+                <a href="#where-stored">&ldquo;Where your information is
+                stored&rdquo;</a> below.
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Sentry</th>
+              <td>
+                Crash reports: error and stack trace, device model, OS, app
+                version, and pre-crash breadcrumbs
+              </td>
+              <td>
+                Crash and error monitoring. Processed in Sentry&rsquo;s
+                <strong>United States</strong> region &mdash; see
+                <a href="#where-stored">&ldquo;Where your information is
+                stored&rdquo;</a> below.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        We may also disclose information if required by law (e.g. a court order),
+        or to protect the rights and safety of our users or the public. If
+        LetsPlay is ever acquired or merged, user information may transfer as
+        part of that transaction; we&rsquo;d notify you before it becomes subject
+        to a different privacy policy.
+      </p>
+
+      <h3 id="where-stored">Where your information is stored</h3>
+
+      <p>
+        <strong
+          >LetsPlay is a Canadian service, but your information is stored and
+          processed in the United States.</strong
+        >
+        Specifically:
+      </p>
+
+      <ul>
+        <li>
+          Our database, login system, and file storage (<strong>Supabase</strong>)
+          are hosted in the AWS <code>us-east-2</code> region in Ohio, USA;
+        </li>
+        <li>
+          Our product analytics (<strong>PostHog</strong>) and crash reporting
+          (<strong>Sentry</strong>) both use their United States regions;
+        </li>
+        <li>
+          <strong>Stripe</strong>, <strong>Google</strong>, and
+          <strong>Apple</strong> process information in the United States and in
+          other countries where they operate.
+        </li>
+      </ul>
+
+      <p>
+        This means your personal information is subject to the laws of the United
+        States, and may be accessible to US courts, law enforcement, and
+        government authorities under those laws &mdash; including through lawful
+        access requests that would not require your consent or notice to you. We
+        use reputable providers that are contractually bound to protect your
+        information, but we cannot exempt them from the legal obligations of the
+        country they operate in.
+      </p>
+
+      <p>
+        By using the Service, you acknowledge that your information is
+        transferred to and stored in the United States. If you have questions
+        about this, contact us (<a href="#s10">Section 10</a>).
+      </p>
+
+      <h2 id="s4">4. What other users can see</h2>
+
+      <p>
+        LetsPlay is a social app, so parts of your profile are visible to other
+        users:
+      </p>
+
+      <ul>
+        <li>
+          Your
+          <strong
+            >name, profile photo, bio, favourite sports, and your counts of events
+            joined and hosted</strong
+          >
+          are visible on your public profile;
+        </li>
+        <li>
+          When you join an event, your <strong>name and photo</strong> appear in
+          that event&rsquo;s participant list;
+        </li>
+        <li>
+          When you host an event, your name and photo appear on the event page,
+          and the event itself (including its location) is visible to users of the
+          app and to anyone a participant shares the event link with.
+        </li>
+      </ul>
+
+      <p>
+        Your email, phone number, date of birth, gender, and payment details are
+        <strong>never</strong> shown to other users.
+      </p>
+
+      <h2 id="s5">5. Retention and deleting your account</h2>
+
+      <ul>
+        <li>We keep your information for as long as your account exists.</li>
+        <li>
+          You can
+          <strong>permanently delete your account in the app</strong> (Profile
+          &rarr; Delete Account). This immediately erases your name, email, phone
+          number, date of birth, gender, bio, and profile photo; destroys your
+          login credentials so the account can never be used again; and removes
+          your participation history, your notification history, your saved
+          devices, and any blocks you had set.
+        </li>
+        <li>
+          <strong>Events you hosted are never deleted.</strong> Upcoming ones are
+          cancelled and their participants refunded before your account is
+          removed; all of them &mdash; past and cancelled alike &mdash;
+          <strong>stay visible</strong> to the people who joined them, listed as
+          hosted by &ldquo;Deleted user&rdquo;, so those participants don&rsquo;t
+          lose their own event history.
+        </li>
+        <li>
+          <strong>Your own upcoming paid spots</strong> are refunded, unless the
+          event starts within 12 hours. In that case the spot is forfeited under
+          the same rule that applies when you cancel a spot normally &mdash; see
+          the <a href="./cancellation.html">Cancellation Policy</a>.
+        </li>
+        <li>
+          Refunds are for the full amount you paid. We can&rsquo;t refund a
+          payment you&rsquo;ve already disputed with your bank, because the
+          bank&rsquo;s chargeback process controls that money. If a refund fails
+          at our payment provider we record it and complete it manually.
+        </li>
+        <li>
+          <strong>Records of payments</strong> you made or received are retained
+          for <strong>7 years</strong> after the transaction, as required by
+          Canadian tax and financial regulations. After deletion they are no
+          longer linked to your name or contact details.
+        </li>
+        <li>
+          If money is still owed to you as a host when you delete, we keep only
+          what&rsquo;s needed to send it to your payout account, and remove that
+          once the transfer completes.
+        </li>
+        <li>
+          <strong>Reports involving you</strong> &mdash; whether you filed them or
+          they were filed about you &mdash; are retained where needed for safety
+          and legal purposes. A deleted account does not erase reports made about
+          it.
+        </li>
+        <li>
+          <strong>Blocks other people placed on you</strong> are kept &mdash;
+          that&rsquo;s their protection, not yours to remove. The entry no longer
+          appears in their blocked list, since there is no longer an account to
+          unblock.
+        </li>
+        <li>
+          <strong>Feedback you sent us</strong> is kept with the link to you
+          removed, so we don&rsquo;t lose the bug reports.
+        </li>
+        <li>
+          We keep an <strong>anonymized record of the account itself</strong>, so
+          that the events, payments, and reports connected to it stay intact. It
+          holds no personal information and appears throughout the app only as
+          &ldquo;Deleted user&rdquo;.
+        </li>
+        <li>
+          <strong>Notifications other people already received</strong> may still
+          contain the first name you used at the time &mdash; for example
+          &ldquo;Alex left your event&rdquo;. Those sit in other users&rsquo; own
+          notification history, and we don&rsquo;t alter them.
+        </li>
+        <li>
+          <strong>Usage analytics and crash reports</strong> are retained for
+          <strong>30 days</strong> and then deleted. Deleting your account does
+          not remove analytics or crash data already collected &mdash; it remains
+          for the rest of that 30-day window. It is never linked to your name or
+          email address.
+        </li>
+      </ul>
+
+      <h2 id="s6">6. Your rights and choices</h2>
+
+      <ul>
+        <li>
+          <strong>Access and correction:</strong> You can view and edit your
+          profile in the app at any time. For a copy of the personal information
+          we hold about you, or to correct something you can&rsquo;t edit
+          yourself, contact us (<a href="#s10">Section 10</a>).
+        </li>
+        <li>
+          <strong>Location permission:</strong> entirely optional &mdash; the app
+          works fully without it (you just lose the &ldquo;Nearest&rdquo; sort).
+          You can revoke it any time in your device settings.
+        </li>
+        <li>
+          <strong>Photo access:</strong> only requested when you choose to set a
+          profile photo. You can also remove a profile photo you&rsquo;ve already
+          set, at any time.
+        </li>
+        <li>
+          <strong>Notifications:</strong> you choose whether to allow push
+          notifications at all (in your device settings), and you can turn off
+          <strong>event reminders</strong> and <strong>event activity</strong>
+          separately in the app (Settings &rarr; Notifications). Important alerts
+          &mdash; an event being cancelled, a refund, or a payout problem &mdash;
+          are always sent, since they affect your money or your plans.
+        </li>
+        <li>
+          <strong>Analytics:</strong> analytics and crash reporting cannot
+          currently be turned off inside the app. If you&rsquo;d rather we
+          didn&rsquo;t hold usage data about you, contact us
+          (<a href="#s10">Section 10</a>) and we&rsquo;ll delete what we have.
+        </li>
+        <li>
+          <strong>Blocking:</strong> you control who can see and join your events
+          via in-app blocking. Blocking works both ways and takes effect
+          immediately &mdash; it also removes you and the other person from each
+          other&rsquo;s upcoming events. If a host blocks you, any paid spots you
+          held in their upcoming events are refunded in full; if you block a host,
+          you give up those spots without a refund. The
+          <a href="./cancellation.html">Cancellation Policy</a> sets out the full
+          rules.
+        </li>
+        <li>
+          <strong>Complaints:</strong> if you believe we&rsquo;ve mishandled your
+          information, contact us first; you also have the right to complain to
+          the Office of the Privacy Commissioner of Canada and, if you live in
+          Quebec, to the Commission d&rsquo;acc&egrave;s &agrave;
+          l&rsquo;information.
+        </li>
+      </ul>
+
+      <h2 id="s7">7. Security</h2>
+
+      <p>
+        We protect your information with industry-standard measures: encrypted
+        connections (TLS) for all traffic, row-level access controls on our
+        database so users can only read data they&rsquo;re entitled to, and
+        payment handling delegated entirely to Stripe (a PCI-DSS Level 1
+        provider). No system is perfectly secure, but we design so that a single
+        mistake doesn&rsquo;t expose your data. If a breach affecting you occurs,
+        we&rsquo;ll notify you as required by law.
+      </p>
+
+      <h2 id="s8">8. Children</h2>
+
+      <p>
+        The Service is intended solely for adults
+        <strong>18 and older</strong>. It is not directed to children, and we do
+        not knowingly collect personal information from anyone under 18. If we
+        learn that we have collected information from a person under 18, we will
+        delete that account and the personal information associated with it,
+        subject to the retention exceptions in <a href="#s5">Section 5</a>. If you
+        believe a minor is using the Service, contact us at
+        <a href="mailto:support@letsplayapp.ca">support@letsplayapp.ca</a> and we
+        will remove the account.
+      </p>
+
+      <h2 id="s9">9. Changes to this policy</h2>
+
+      <p>
+        We may update this policy as the app evolves (for example, if we add a new
+        payment method or a new service provider). Material changes will be
+        announced in the app before they take effect, and the effective date above
+        will be updated.
+      </p>
+
+      <h2 id="s10">10. Contact us</h2>
+
+      <p>Questions, access requests, or privacy complaints:</p>
+
+      <address>
+        Privacy Officer, LetsPlay Inc.<br />
+        <a href="mailto:support@letsplayapp.ca">support@letsplayapp.ca</a><br />
+        2520 Eglinton Ave W<br />
+        Mississauga, ON L5M 0Y4<br />
+        Canada
+      </address>
+
+      <footer class="legal__seealso">
+        <em
+          >See also: <a href="./terms.html">Terms of Service</a> &middot;
+          <a href="./cancellation.html">Cancellation Policy</a></em
+        >
+      </footer>
     </main>
 
     <!-- =========== Footer =========== -->
@@ -308,6 +638,7 @@
         <nav class="footer__links">
           <a href="./index.html">Home</a>
           <a href="./contact.html">Contact</a>
+          <a href="./terms.html">Terms of Service</a>
           <a href="./cancellation.html">Cancellation Policy</a>
           <a href="./delete-account.html">Delete Account</a>
         </nav>

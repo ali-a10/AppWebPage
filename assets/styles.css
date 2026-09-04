@@ -881,6 +881,30 @@ p {
   margin: 6px 0 0;
 }
 
+/* Contact blocks (privacy s10, terms s16). <address> defaults to italic. */
+.legal address {
+  font-style: normal;
+  margin: 0 0 14px;
+}
+
+/* Region identifiers in the provider table, e.g. us-east-2. */
+.legal code {
+  background: var(--teal-wash);
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-size: 0.9em;
+}
+
+/* The provider table carries three columns, so the row header needs less
+   width than the two-column tables on the deletion page. */
+.legal .legal__table--3col {
+  min-width: 620px;
+}
+
+.legal .legal__table--3col tbody th {
+  width: 20%;
+}
+
 .legal__seealso {
   margin-top: 48px;
   padding-top: 20px;
