@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "ca.letsplayapp.letsplay",
+      "sha256_cert_fingerprints": [
+        "73:63:7D:30:DA:A8:4E:4D:92:6C:23:89:B4:E8:F2:3F:6D:E3:F0:B2:D3:D3:30:D2:2F:FE:A1:36:01:B7:5A:56",
+        "E4:58:06:E4:C5:49:66:2F:3B:53:AF:F5:60:D8:5B:9B:8F:F1:AD:7B:62:EC:1D:F6:55:61:50:62:0E:F4:0A:46"
+      ]
+    }
+  }
+]
