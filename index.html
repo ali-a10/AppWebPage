@@ -33,7 +33,7 @@
       <div class="container">
         <div class="eyebrow-row">
           <span class="eyebrow-line" aria-hidden="true"></span>
-          <span class="eyebrow">Discover pickup sports</span>
+          <span class="eyebrow">Now on iOS and Android</span>
           <span class="eyebrow-line" aria-hidden="true"></span>
         </div>
         <h1>Pickup sports, near you.</h1>
@@ -42,41 +42,20 @@
           basketball. Or host your own and fill the roster in minutes.
         </p>
 
-        <!--
-          WAITLIST FORM — posts to MailerLite.
-          assets/waitlist.js intercepts the submit so we can show an inline
-          "thank you" instead of redirecting. The action/target below are a
-          no-JS fallback that still works if scripting is disabled.
-        -->
-        <form
-          class="waitlist"
-          id="waitlist"
-          action="https://assets.mailerlite.com/jsonp/2427023/forms/190014624131712066/subscribe"
-          method="post"
-          target="_blank"
-        >
-          <label class="visually-hidden" for="waitlist-email">Email address</label>
-          <input
-            class="waitlist__input"
-            id="waitlist-email"
-            type="email"
-            name="fields[email]"
-            placeholder="name@example.com"
-            autocomplete="email"
-            required
-          />
-          <button class="waitlist__btn" type="submit">Join the waitlist</button>
-          <!-- Required by MailerLite -->
-          <input type="hidden" name="ml-submit" value="1" />
-          <input type="hidden" name="anticsrf" value="true" />
-        </form>
-        <p class="waitlist__note">Get an email the moment we launch — no spam.</p>
-        <p class="waitlist__success" hidden>
-          🎉 You're on the list! Check your inbox to confirm.
-        </p>
-
-        <!-- Pre-launch tagline. Replace with a .store-row of official App Store + Google Play badges once the apps are live. -->
-        <p class="coming-soon">Coming soon to iOS and Android</p>
+        <div class="store-row">
+          <a
+            class="store-badge"
+            href="https://apps.apple.com/ca/app/letsplay-pickup-sports/id6804315546?itscg=30200&amp;itsct=apps_box_link&amp;mttnsubad=6804315546"
+          >
+            <img src="./assets/app-store-badge.svg" alt="Download on the App Store" />
+          </a>
+          <a
+            class="store-badge"
+            href="https://play.google.com/store/apps/details?id=ca.letsplayapp.letsplay"
+          >
+            <img src="./assets/google-play-badge.png" alt="Get it on Google Play" />
+          </a>
+        </div>
       </div>
     </section>
 
@@ -199,8 +178,20 @@
     <section class="cta-strip">
       <div class="container">
         <h2>Ready to play?</h2>
-        <!-- Pre-launch tagline. Replace with a .store-row of official App Store + Google Play badges once the apps are live. -->
-        <p class="coming-soon">Coming soon to iOS and Android</p>
+        <div class="store-row">
+          <a
+            class="store-badge"
+            href="https://apps.apple.com/ca/app/letsplay-pickup-sports/id6804315546?itscg=30200&amp;itsct=apps_box_link&amp;mttnsubad=6804315546"
+          >
+            <img src="./assets/app-store-badge.svg" alt="Download on the App Store" />
+          </a>
+          <a
+            class="store-badge"
+            href="https://play.google.com/store/apps/details?id=ca.letsplayapp.letsplay"
+          >
+            <img src="./assets/google-play-badge.png" alt="Get it on Google Play" />
+          </a>
+        </div>
       </div>
     </section>
 
@@ -216,8 +207,11 @@
           <a href="./delete-account.html">Delete Account</a>
         </nav>
       </div>
+      <p class="container footer__legal">
+        Apple and the Apple logo are trademarks of Apple Inc., registered in the
+        U.S. and other countries. App Store is a service mark of Apple Inc.
+        Google Play and the Google Play logo are trademarks of Google LLC.
+      </p>
     </footer>
-
-    <script src="./assets/waitlist.js" defer></script>
   </body>
 </html>

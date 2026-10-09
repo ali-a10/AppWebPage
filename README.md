@@ -1,6 +1,6 @@
 # LetsPlay marketing site
 
-Static HTML/CSS for [letsplayapp.ca](https://letsplayapp.ca), sharing a single stylesheet at `assets/styles.css`. No build step, no external dependencies apart from the waitlist form's `assets/waitlist.js`.
+Static HTML/CSS for [letsplayapp.ca](https://letsplayapp.ca), sharing a single stylesheet at `assets/styles.css`. No build step, no JavaScript, no external dependencies.
 
 `delete-account.html` is the URL Google Play requires under **App content → Data safety → Account deletion**, so it must stay reachable at that path.
 
@@ -28,13 +28,11 @@ npx serve webPage
 3. **Branch:** `main`, **Folder:** `/ (root)`.
 4. Add `letsplayapp.ca` as the custom domain and follow GitHub's [custom-domain DNS instructions](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site) to point the apex domain at GitHub Pages.
 
-## Things to update before launch
+## Store badges
 
-The store badges currently use **"Coming soon" placeholders** (`.store-badge--soon`) — they are not clickable and do not use Apple's or Google's official artwork. This is intentional for the pre-launch / developer-program-application phase.
+`assets/app-store-badge.svg` and `assets/google-play-badge.png` are the official artwork, downloaded from:
 
-Once your apps are approved and live, replace each `.store-badge--soon` `<div>` with a real `<a>` linking to the App Store / Google Play listing, and swap in the **official badge artwork**:
+- Apple: <https://tools.applemarketingtools.com>
+- Google: <https://play.google.com/intl/en_us/badges/>
 
-- Apple App Store badge: download from <https://tools.applemediaservices.com/app-store>
-- Google Play badge: download from <https://play.google.com/intl/en_us/badges/>
-
-Apple's and Google's marketing guidelines require the use of their official badges in production — do not ship hand-drawn approximations.
+Both stores' guidelines require the badges to be used unmodified, and the footer must keep the Apple and Google trademark notice. To change language or style, download a new badge from those pages rather than editing the files.
