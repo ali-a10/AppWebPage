@@ -579,9 +579,15 @@ p {
   font-size: 15px;
 }
 
+/* Shrink slightly on phones so both badges fit side by side down to a 360px
+   screen. Still above Apple's 40px minimum; if a screen is narrower they wrap,
+   centred. */
 @media (max-width: 480px) {
   .applink__badges {
-    flex-direction: column;
+    gap: 10px;
+  }
+  .applink__badges .store-badge img {
+    height: 44px;
   }
 }
 
