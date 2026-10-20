@@ -562,27 +562,21 @@ p {
   display: none;
 }
 
-/* Placeholder strip standing in for the App Store / Google Play badges. */
+/* Official App Store / Google Play badges (styled by .store-badge). */
 .applink__badges {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: 12px;
   margin-top: 26px;
 }
 
-.applink__badge-soon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 52px;
-  padding: 0 22px;
-  border: 1.5px dashed var(--border);
-  border-radius: var(--r-button);
-  background: var(--card);
-  color: var(--text-muted);
-  font-size: 14px;
-  font-weight: 600;
+/* "Already have the app?" line. Needs .applink__badges in the selector to
+   beat the generic `.applink p` margin and size. */
+.applink__badges + .applink__note {
+  margin-top: 22px;
+  font-size: 15px;
 }
 
 @media (max-width: 480px) {

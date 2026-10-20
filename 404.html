@@ -75,21 +75,24 @@
         </svg>
         <h1>Join this event on LetsPlay</h1>
         <p>To view and join this event, download LetsPlay.</p>
-        <a class="applink__btn" id="retry" href="/index.html"
-          >Open in LetsPlay</a
-        >
 
-        <!--
-          TODO: replace this placeholder row with the official App Store and
-          Google Play badges once the apps are published.
-            - App Store:   https://tools.applemediaservices.com/app-store
-            - Google Play: https://play.google.com/intl/en_us/badges/
-          Apple's and Google's guidelines require their official artwork.
-        -->
         <div class="applink__badges">
-          <span class="applink__badge-soon">App Store — coming soon</span>
-          <span class="applink__badge-soon">Google Play — coming soon</span>
+          <a
+            class="store-badge"
+            href="https://apps.apple.com/ca/app/letsplay-pickup-sports/id6804315546?itscg=30200&amp;itsct=apps_box_link&amp;mttnsubad=6804315546"
+          >
+            <img src="/assets/app-store-badge.svg" alt="Download on the App Store" />
+          </a>
+          <a
+            class="store-badge"
+            href="https://play.google.com/store/apps/details?id=ca.letsplayapp.letsplay"
+          >
+            <img src="/assets/google-play-badge.png" alt="Get it on Google Play" />
+          </a>
         </div>
+        <p class="applink__note">
+          Already have the app? <a id="retry" href="/index.html">Open this event</a>
+        </p>
       </div>
 
       <!-- =========== Ordinary 404 =========== -->
@@ -128,12 +131,17 @@
           <a href="/delete-account.html">Delete Account</a>
         </nav>
       </div>
+      <p class="container footer__legal">
+        Apple and the Apple logo are trademarks of Apple Inc., registered in the
+        U.S. and other countries. App Store is a service mark of Apple Inc.
+        Google Play and the Google Play logo are trademarks of Google LLC.
+      </p>
     </footer>
 
     <script>
       // Retry the hand-off at this exact URL, so anyone who already has the app
       // but landed here via a browser that swallowed the link gets another shot.
-      // Falls back to the homepage href above if the element isn't shown.
+      // Falls back to the homepage href above if the script doesn't run.
       var retry = document.getElementById("retry");
       if (retry) {
         retry.href = window.location.href;
