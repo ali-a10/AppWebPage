@@ -139,13 +139,36 @@
     </footer>
 
     <script>
-      // Retry the hand-off at this exact URL, so anyone who already has the app
-      // but landed here via a browser that swallowed the link gets another shot.
+      // Hand the event to the app over the letsplay:// scheme, the same way the
+      // auth pages do. Pointing this link at window.location.href (the https URL)
+      // could never work: Safari won't fire a Universal Link tapped on a page of
+      // the same domain, and in-app browsers (Snapchat, Instagram) ignore
+      // Universal Links entirely. A custom scheme isn't a web page, so the browser
+      // has to pass it to the OS.
+      //
+      // Android gets an intent:// URL instead, so Chrome can fall back to the
+      // Play Store when the app isn't installed rather than showing an error.
       // Falls back to the homepage href above if the script doesn't run.
-      var retry = document.getElementById("retry");
-      if (retry) {
-        retry.href = window.location.href;
-      }
+      (function () {
+        var retry = document.getElementById("retry");
+        var match = window.location.pathname.match(/^\/event\/([A-Za-z0-9-]+)\/?$/);
+        if (!retry || !match) return;
+
+        var path = "event/" + match[1];
+        var pkg = "ca.letsplayapp.letsplay";
+
+        if (/Android/i.test(navigator.userAgent)) {
+          retry.href =
+            "intent://" + path +
+            "#Intent;scheme=letsplay;package=" + pkg +
+            ";S.browser_fallback_url=" +
+            encodeURIComponent("https://play.google.com/store/apps/details?id=" + pkg) +
+            ";end";
+        } else {
+          retry.href = "letsplay://" + path;
+        }
+      })();
     </script>
+
   </body>
 </html>
