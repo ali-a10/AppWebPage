@@ -46,17 +46,48 @@
           <circle cx="12" cy="16" r="1.25" />
         </svg>
         <h1>Reset your password</h1>
-        <p>
-          This link resets your LetsPlay password inside the app. Open it on your
-          phone with LetsPlay installed and the app will take it from here.
-        </p>
-        <p>
-          If nothing happened, tap the button below to try handing the link back
-          to the app.
-        </p>
-        <a class="applink__btn" id="retry" href="/auth/reset-password/"
-          >Open in the LetsPlay app</a
-        >
+
+        <!-- Unlike the confirm page, nothing has happened server-side by the time this
+             renders: a reset only takes effect once the app exchanges the code and the
+             user picks a new password. So there is no "you're already done" state here. -->
+        <div id="state-confirmed" hidden>
+          <p>
+            Your reset link is still good. Hand it back to the app to choose a
+            new password.
+          </p>
+          <!-- No href in the markup on purpose: the script sets it before revealing this
+               block, so a script that never runs leaves inert text rather than another
+               button that looks tappable and does nothing. -->
+          <a class="applink__btn" id="open-app">Open in the LetsPlay app</a>
+          <p class="applink__note">
+            If the app says the link expired, request a new reset from the login
+            screen and open that email in your phone&rsquo;s Mail app rather than
+            Gmail — Gmail opens links in Chrome, which can&rsquo;t pass them to
+            the app.
+          </p>
+        </div>
+
+        <div id="state-expired" hidden>
+          <p>That link has expired or was already used.</p>
+          <p class="applink__note">
+            Request a new reset from the LetsPlay login screen, then open that
+            email in your phone&rsquo;s Mail app rather than Gmail — Gmail opens
+            links in Chrome, which can&rsquo;t pass them to the app.
+          </p>
+        </div>
+
+        <div id="state-generic">
+          <p>
+            This link resets your LetsPlay password inside the app. Open it on
+            the phone that has LetsPlay installed.
+          </p>
+          <p class="applink__note">
+            If you opened it from Gmail, try the same email in your
+            phone&rsquo;s Mail app instead — Gmail opens links in Chrome, which
+            can&rsquo;t pass them to the app.
+          </p>
+        </div>
+
         <p class="applink__note">
           Still stuck? <a href="../../contact.html">Contact support</a> and
           we&rsquo;ll help you get back in.
@@ -76,9 +107,50 @@
     </footer>
 
     <script>
-      // Point the retry button at this exact URL so the reset token in the
-      // query string / fragment survives the second hand-off attempt.
-      document.getElementById("retry").href = window.location.href;
+      // Reads `a=1&b=2` from either a query string or a URL fragment.
+      function params(input) {
+        return new URLSearchParams((input || "").replace(/^[?#]/, ""));
+      }
+
+      // Returns the letsplay:// URL handing `code` back to the app, or null if there is none.
+      //
+      // The https URL cannot be reused for this. Chrome on iOS ignores Universal Links
+      // outright, and Safari refuses to hand off a link tapped on a page of the same domain —
+      // so the old button, pointed at window.location.href, could never work from anywhere.
+      // A custom scheme is not a web page, so every browser must pass it to iOS.
+      //
+      // Only `code` is forwarded, deliberately. A custom scheme is unverified — any app may
+      // claim letsplay:// — and a PKCE code is the one auth value that survives that: redeeming
+      // it needs the verifier held by the real app on this device, so an interceptor gets
+      // nothing. Implicit-flow tokens (#access_token) are bearer credentials and must never
+      // travel this way.
+      function appHandoffUrl(path, search) {
+        var code = params(search).get("code");
+        return code ? "letsplay://" + path + "?code=" + encodeURIComponent(code) : null;
+      }
+
+      // Picks which block applies: a usable code, an expired link, or neither.
+      function handoffState(search, hash) {
+        if (params(search).get("code")) return "confirmed";
+        if (params(hash).get("error") || params(search).get("error")) return "expired";
+        return "generic";
+      }
+
+      (function () {
+        var state = handoffState(window.location.search, window.location.hash);
+        if (state === "generic") return; // already the markup's default, so JS-off is correct
+
+        // href first, then reveal — never show a button that isn't wired up yet.
+        if (state === "confirmed") {
+          document.getElementById("open-app").href = appHandoffUrl(
+            "auth/reset-password",
+            window.location.search
+          );
+        }
+
+        document.getElementById("state-generic").hidden = true;
+        document.getElementById("state-" + state).hidden = false;
+      })();
     </script>
   </body>
 </html>

@@ -471,7 +471,8 @@ p {
 /* ============ Auth hand-off pages ============ */
 /* Fallback landing pages behind the /auth/* Universal Links. Only seen when iOS
    could not hand the link to the app — desktop, an in-app browser that swallows
-   Universal Links, or a device without LetsPlay installed. */
+   Universal Links, Chrome on iOS (which ignores Universal Links outright, and is
+   where Gmail sends links), or a device without LetsPlay installed. */
 .applink {
   min-height: calc(100vh - 137px); /* viewport minus nav + footer */
   display: flex;
@@ -483,6 +484,13 @@ p {
 
 .applink__card {
   max-width: 460px;
+}
+
+/* The /auth/* pages ship all three hand-off blocks and let the inline script reveal whichever
+   applies. Browsers hide [hidden] on their own, but any class setting `display` would silently
+   beat that UA rule — so pin it here rather than depend on none ever being added. */
+.applink [hidden] {
+  display: none !important;
 }
 
 .applink__icon {
