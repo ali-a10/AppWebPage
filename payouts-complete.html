@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>All done — LetsPlay</title>
+    <title>Back to LetsPlay</title>
     <meta
       name="description"
       content="You can close this window and return to the LetsPlay app."
@@ -44,11 +44,14 @@
           <rect x="6" y="2.5" width="12" height="19" rx="3" />
           <line x1="10" y1="18.5" x2="14" y2="18.5" />
         </svg>
-        <h1>All done here</h1>
+        <!-- Stripe sends hosts here both when they finish (return_url) and when the setup
+             link expired or they left early (refresh_url), so this can't claim they're done.
+             The app re-checks the account when the browser closes and shows the real state. -->
+        <h1>Return to the LetsPlay app</h1>
         <p>
-          You can close this window and return to the LetsPlay app. If Stripe is
-          still verifying your details, the app will update automatically once
-          it&rsquo;s ready.
+          Close this window to go back to the app. It will show where your
+          payout setup stands. If Stripe still needs anything from you, you can
+          pick up from there.
         </p>
       </div>
     </main>

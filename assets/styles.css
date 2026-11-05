@@ -471,8 +471,8 @@ p {
 /* ============ Auth hand-off pages ============ */
 /* Fallback landing pages behind the /auth/* Universal Links. Only seen when iOS
    could not hand the link to the app — desktop, an in-app browser that swallows
-   Universal Links, Chrome on iOS (which ignores Universal Links outright, and is
-   where Gmail sends links), or a device without LetsPlay installed. */
+   Universal Links, Chrome on iOS (which has been seen not handing them to the app),
+   or a device without LetsPlay installed. */
 .applink {
   min-height: calc(100vh - 137px); /* viewport minus nav + footer */
   display: flex;

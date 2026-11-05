@@ -51,32 +51,39 @@
         <!-- Reaching this page means the hand-off to the app did not happen, but the
              confirming itself already did: that runs on Supabase's server before the
              redirect that lands here. So the account is live and only the sign-in is
-             missing — unless the link had expired, which arrives as #error instead. -->
+             missing. The link arrives in one of three shapes: ?code= from the original
+             signup email, #access_token= from a resent one (which the app never signs in
+             from, so those people log in by hand), or #error= if it had expired. -->
         <div id="state-confirmed" hidden>
           <p>
-            Your email is confirmed — that happened the moment you opened this
-            link. All that&rsquo;s left is signing in.
+            Your email is confirmed. Tap below to finish setting up your account
+            in the app.
           </p>
           <!-- No href in the markup on purpose: the script sets it before revealing this
                block, so a script that never runs leaves inert text rather than another
                button that looks tappable and does nothing. -->
           <a class="applink__btn" id="open-app">Open in the LetsPlay app</a>
           <p class="applink__note">
-            The app may open on the login screen. If it does, sign in with the
-            email and password you chose at signup — your account is ready.
+            If the app opens on the login screen instead, log in with the email
+            and password you chose at signup — your account is ready.
+          </p>
+        </div>
+
+        <!-- Shown on a computer, where the button can't work, and for resent links,
+             which carry no code to hand over. Both are confirmed already. -->
+        <div id="state-login" hidden>
+          <p>
+            Your email is confirmed. Open LetsPlay on your phone and log in with
+            the email and password you chose at signup.
           </p>
         </div>
 
         <div id="state-expired" hidden>
-          <p>
-            That link has expired or was already used, so your email
-            isn&rsquo;t confirmed yet.
-          </p>
+          <p>That link has expired or was already used.</p>
           <p class="applink__note">
-            Open LetsPlay, try logging in, and tap <strong>send a new
-            link</strong>. Open that email in your phone&rsquo;s Mail app rather
-            than Gmail — Gmail opens links in Chrome, which can&rsquo;t pass them
-            to the app.
+            If you&rsquo;ve already confirmed your email, just log in to
+            LetsPlay. If not, try logging in anyway and the app will offer to
+            send you a new link.
           </p>
         </div>
 
@@ -84,11 +91,6 @@
           <p>
             This link finishes setting up your LetsPlay account inside the app.
             Open it on the phone that has LetsPlay installed.
-          </p>
-          <p class="applink__note">
-            If you opened it from Gmail, try the same email in your
-            phone&rsquo;s Mail app instead — Gmail opens links in Chrome, which
-            can&rsquo;t pass them to the app.
           </p>
         </div>
 
@@ -118,10 +120,10 @@
 
       // Returns the letsplay:// URL handing `code` back to the app, or null if there is none.
       //
-      // The https URL cannot be reused for this. Chrome on iOS ignores Universal Links
-      // outright, and Safari refuses to hand off a link tapped on a page of the same domain —
-      // so the old button, pointed at window.location.href, could never work from anywhere.
-      // A custom scheme is not a web page, so every browser must pass it to iOS.
+      // The https URL cannot be reused for this. Chrome on iOS has been seen not handing
+      // Universal Links to the app, and Safari refuses to hand off a link tapped on a page of
+      // the same domain — so the old button, pointed at window.location.href, could never
+      // work. A custom scheme is not a web page, so the browser has to pass it to the OS.
       //
       // Only `code` is forwarded, deliberately. A custom scheme is unverified — any app may
       // claim letsplay:// — and a PKCE code is the one auth value that survives that: redeeming
@@ -133,16 +135,35 @@
         return code ? "letsplay://" + path + "?code=" + encodeURIComponent(code) : null;
       }
 
-      // Picks which block applies: a usable code, an expired link, or neither.
-      function handoffState(search, hash) {
-        if (params(search).get("code")) return "confirmed";
+      // Returns true on a computer, where a letsplay:// button has nothing to open. iPads that
+      // ask for desktop sites report "Macintosh", so a touchscreen Mac counts as a phone.
+      function isDesktop(userAgent, maxTouchPoints) {
+        if (/iPhone|iPad|iPod|Android/i.test(userAgent)) return false;
+        return !(/Macintosh/.test(userAgent) && maxTouchPoints > 1);
+      }
+
+      // Picks which block applies: a usable code, a resent link, an expired link, or neither.
+      // A code on a computer gets the log-in message, since the button there can't work.
+      function handoffState(search, hash, desktop) {
+        if (params(search).get("code")) return desktop ? "login" : "confirmed";
+        if (params(hash).get("access_token")) return "login";
         if (params(hash).get("error") || params(search).get("error")) return "expired";
         return "generic";
       }
 
       (function () {
-        var state = handoffState(window.location.search, window.location.hash);
+        var state = handoffState(
+          window.location.search,
+          window.location.hash,
+          isDesktop(navigator.userAgent, navigator.maxTouchPoints || 0)
+        );
         if (state === "generic") return; // already the markup's default, so JS-off is correct
+
+        // A resent link puts live sign-in tokens in the address bar. Nothing here uses them,
+        // so take them out of the URL and the browser history.
+        if (params(window.location.hash).get("access_token")) {
+          history.replaceState(null, "", window.location.pathname + window.location.search);
+        }
 
         // href first, then reveal — never show a button that isn't wired up yet.
         if (state === "confirmed") {
