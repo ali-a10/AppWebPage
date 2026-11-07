@@ -90,7 +90,7 @@
             <img src="/assets/google-play-badge.png" alt="Get it on Google Play" />
           </a>
         </div>
-        <p class="applink__note">
+        <p class="applink__note" id="already">
           Already have the app? <a id="retry" href="/index.html">Open this event</a>
         </p>
       </div>
@@ -153,6 +153,16 @@
         var retry = document.getElementById("retry");
         var match = window.location.pathname.match(/^\/event\/([A-Za-z0-9-]+)\/?$/);
         if (!retry || !match) return;
+
+        // Instagram's in-app browser won't hand letsplay:// links to the app, so the "Open this
+        // event" link does nothing there. Point people at its menu instead; in a real browser
+        // the link works.
+        if (/Instagram/.test(navigator.userAgent)) {
+          document.getElementById("already").innerHTML =
+            "Already have the app? Tap <strong>&#8943;</strong> at the top right and choose " +
+            "<strong>Open in external browser</strong>.";
+          return;
+        }
 
         var path = "event/" + match[1];
         var pkg = "ca.letsplayapp.letsplay";
