@@ -1,0 +1,1161 @@
+/* Event page (404.html when the path starts with /event/).
+   Mirrors the app's redesigned event page: ticket card, date tile, spots chip.
+   Colours come from the tokens in styles.css. */
+
+/* The site header stays put on other pages; on the event page it scrolls away. */
+.is-event .nav {
+  position: static;
+}
+
+/* Event page header: a slim 50px teal bar with the wordmark and one "Get the app" button.
+   Home, Contact and Privacy are in the footer. Other pages keep the full header. */
+/* Scoped under .nav__brand so it beats styles.css's ".nav__brand img { display: block }". */
+.nav__brand .nav__wordmark,
+.nav__getapp {
+  display: none;
+}
+
+.is-event .nav__inner {
+  height: 50px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.is-event .nav__brand img {
+  display: none;
+}
+
+.is-event .nav__brand .nav__wordmark {
+  display: block;
+  width: auto;
+  height: 30px;
+}
+
+.is-event .nav__links {
+  display: none;
+}
+
+.is-event .nav__getapp {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: var(--mint);
+  color: var(--teal-dark);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.is-event .nav__getapp:hover {
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+.ev {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 16px 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ev [hidden] {
+  display: none !important;
+}
+
+.ev-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  overflow: hidden;
+}
+
+.ev-pad {
+  padding: 16px;
+}
+
+/* ---------- Banner (host photo or sport artwork, 2:1) ---------- */
+.ev-banner {
+  position: relative;
+  aspect-ratio: 2 / 1;
+  overflow: hidden;
+  background: var(--teal);
+}
+
+.ev-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* The sport's playing surface; centre-cropped by the drawing itself (preserveAspectRatio slice). */
+.ev-banner__surface {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* A host photo sits on top of the surface, which only shows if the photo fails to load. */
+.ev-banner img,
+.ev-mini__banner img {
+  position: absolute;
+  inset: 0;
+}
+
+.ev-thumb {
+  position: relative;
+}
+
+/* Darkens the top so the chips read on any photo. */
+.ev-banner__scrim {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 60%;
+  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0));
+}
+
+.ev-chips {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  gap: 6px;
+}
+
+.ev-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #fff;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.ev-chip svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* ---------- Card body ---------- */
+.ev-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ev-title {
+  margin: 0;
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ev-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.ev-row--top {
+  align-items: flex-start;
+}
+
+.ev-datetile {
+  width: 52px;
+  height: 56px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: var(--teal-wash);
+  color: var(--teal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.ev-datetile__dow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.ev-datetile__day {
+  font-size: 20px;
+  font-weight: 800;
+  margin-top: 4px;
+}
+
+.ev-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.ev-strong {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.ev-muted {
+  font-size: 13px;
+  line-height: 1.45;
+  color: #4F6D74; /* textSubtle: AA on white */
+  overflow-wrap: anywhere;
+}
+
+.ev-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--teal);
+}
+
+.ev-iconbtn {
+  width: 44px;
+  height: 44px;
+  margin: -10px -10px -10px 0;
+  flex-shrink: 0;
+  border: 0;
+  background: none;
+  border-radius: 10px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.ev-iconbtn:hover {
+  background: var(--teal-wash);
+}
+
+.ev-iconbtn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.ev-iconbtn.is-done {
+  color: #16A34A;
+}
+
+.ev-host {
+  padding-top: 12px;
+  border-top: 1px solid #E8F2F3;
+}
+
+.ev-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #00B8A1;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ev-host__text {
+  font-size: 14px;
+  color: #4F6D74;
+}
+
+.ev-host__text strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ---------- Going + spots left (the app's capacity card, without the names) ---------- */
+.ev-capacity__head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+/* Signed in: "Participants" dropdown under the bar, like the app's. */
+.ev-dropdown {
+  margin-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.ev-dropdown__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 0 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.ev-dropdown__chevron {
+  width: 18px;
+  height: 18px;
+  color: var(--text-muted);
+  transition: transform 0.15s ease;
+}
+
+.ev-dropdown__toggle.is-open .ev-dropdown__chevron {
+  transform: rotate(180deg);
+}
+
+.ev-dropdown__list {
+  padding-top: 12px;
+}
+
+/* No bar under it (older server reply): no gap either. */
+.ev-capacity__head:last-child {
+  margin-bottom: 0;
+}
+
+.ev-capacity__icon {
+  width: 18px;
+  height: 18px;
+  color: var(--teal);
+  flex-shrink: 0;
+}
+
+.ev-capacity__title {
+  flex: 1;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--teal);
+}
+
+.ev-capacity__spots {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.ev-progress {
+  height: 8px;
+  border-radius: 4px;
+  background: var(--teal-wash);
+  overflow: hidden;
+}
+
+.ev-progress__fill {
+  height: 100%;
+  border-radius: 4px;
+  background: var(--mint);
+}
+
+/* 3 or fewer left: the app's orange, in a shade that passes contrast as text. */
+.is-low .ev-capacity__spots {
+  color: #B45309;
+}
+
+.is-low .ev-progress__fill {
+  background: #F59E0B;
+}
+
+/* ---------- About (sits under the price, in the same card) ---------- */
+.ev-about__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 8px;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.ev-about__icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.ev-about {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.ev-section-title {
+  margin: 0 0 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--teal);
+}
+
+.ev-desc {
+  margin: 0;
+  font-size: 14px;
+  line-height: 21px;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.ev-desc.is-clamped {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ev-linkbtn {
+  margin-top: 8px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--teal);
+  cursor: pointer;
+  min-height: 32px;
+}
+
+/* ---------- Join bar (sticks to the bottom of the screen) ---------- */
+.ev-joinbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  padding: 10px 16px env(safe-area-inset-bottom);
+}
+
+.ev-joinbar__inner {
+  max-width: 520px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ev-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 52px;
+  border: 0;
+  border-radius: 14px;
+  background: var(--teal);
+  color: #fff;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.ev-btn:hover {
+  opacity: 0.92;
+  text-decoration: none;
+  color: #fff;
+}
+
+.ev-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.ev-joinbar__row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ev-joinbar__row .ev-btn {
+  flex: 1;
+}
+
+.ev-joinbar__price {
+  display: flex;
+  flex-direction: column;
+}
+
+.ev-joinbar__amount {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--text);
+}
+
+.ev-joinbar__per {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.ev-joinbar__note {
+  text-align: center;
+  font-size: 12px;
+  line-height: 16px;
+  color: #4F6D74;
+}
+
+/* ---------- Message screens (full, cancelled, invite-only...) ---------- */
+.ev-message {
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.ev-message__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--teal-wash);
+  color: var(--teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ev-message__icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.ev-message__icon.is-warn {
+  background: #FEF3C7;
+  color: #92400E;
+}
+
+.ev-message h1 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.ev-message p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 21px;
+  color: #4F6D74;
+}
+
+/* Small summary of the event above a message (e.g. "This event is full"). */
+.ev-mini__banner {
+  height: 96px;
+  position: relative;
+  overflow: hidden;
+  background: var(--teal);
+}
+
+.ev-mini__banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Get the app ---------- */
+.ev-getapp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+  width: 100%;
+}
+
+.ev-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.ev-badges img {
+  height: 44px;
+  width: auto;
+}
+
+.ev-openapp {
+  font-size: 13px;
+  color: #4F6D74;
+  text-align: center;
+}
+
+.ev-openapp a {
+  font-weight: 600;
+}
+
+/* ---------- Loading ---------- */
+.ev-skel {
+  background: var(--teal-wash);
+  border-radius: 8px;
+  animation: ev-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes ev-pulse {
+  50% {
+    opacity: 0.55;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ev-skel {
+    animation: none;
+  }
+}
+
+/* Toast for "Address copied". */
+.ev-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 120px;
+  transform: translateX(-50%);
+  z-index: 20;
+  background: var(--text);
+  color: #fff;
+  font-size: 14px;
+  padding: 10px 16px;
+  border-radius: 999px;
+}
+
+/* Smaller trademark line in the footer on the event page. */
+.is-event .footer__legal {
+  font-size: 10.5px;
+}
+
+/* Room under the footer so the fixed Join bar never covers it. */
+.is-event .footer {
+  padding-bottom: 110px;
+}
+
+/* ================= Part 2: sign-in pages and the signed-in event ================= */
+
+.ev--form {
+  padding-bottom: 32px;
+  gap: 16px;
+}
+
+.ev-back {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 44px;
+  margin: -6px 0 -10px -4px;
+  padding: 0 4px;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--teal);
+  cursor: pointer;
+}
+
+.ev-back svg {
+  width: 20px;
+  height: 20px;
+}
+
+.ev-summary {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+}
+
+.ev-thumb {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.ev-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ev-oneline {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ev-heading h1 {
+  margin: 0 0 4px;
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.ev-heading p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 21px;
+  color: #4F6D74;
+  overflow-wrap: anywhere;
+}
+
+.ev-heading strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.ev-heading--center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  padding-top: 4px;
+}
+
+.ev-heading--center .ev-message__icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 4px;
+}
+
+.ev-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ev-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.ev-label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* 16px text so iPhones don't zoom in when the field is tapped. */
+.ev-input {
+  height: 50px;
+  width: 100%;
+  min-width: 0;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 0 14px;
+  background: var(--card);
+  font: inherit;
+  font-size: 16px;
+  color: var(--text);
+}
+
+.ev-input:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(13, 92, 99, 0.15);
+}
+
+.ev-grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.ev-check {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  background: var(--card);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.ev-check input {
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  accent-color: var(--teal);
+}
+
+.ev-error {
+  margin: -6px 0 0;
+  font-size: 14px;
+  color: #C53030;
+}
+
+.ev-fineprint {
+  margin: 0;
+  font-size: 12px;
+  line-height: 18px;
+  color: #4F6D74;
+  text-align: center;
+}
+
+.ev-split {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ev-center {
+  display: flex;
+  justify-content: center;
+}
+
+.ev-inline-link {
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--teal);
+  cursor: pointer;
+}
+
+.ev-inline-link:disabled {
+  color: #4F6D74;
+  font-weight: 500;
+  cursor: default;
+}
+
+/* Code boxes: six boxes drawn over one real input, so paste and "fill from email" work. */
+.ev-otp {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.ev-otp__box {
+  height: 58px;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  background: var(--card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.ev-otp__box.is-active {
+  border: 2px solid var(--teal);
+}
+
+.ev-otp__input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  font-size: 16px;
+  border: 0;
+  cursor: text;
+}
+
+.ev-confirmed {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--teal-wash);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.ev-confirmed svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--teal);
+}
+
+.ev-confirmed strong {
+  font-weight: 600;
+}
+
+.ev-account {
+  margin: 4px 0 0;
+  text-align: center;
+  font-size: 13px;
+  color: #4F6D74;
+  overflow-wrap: anywhere;
+}
+
+.ev-account .ev-inline-link {
+  min-height: 0;
+  font-size: 13px;
+}
+
+/* Who's going */
+.ev-people {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ev-person {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ev-person__name {
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.ev-avatar--sm {
+  width: 32px;
+  height: 32px;
+  font-size: 12px;
+}
+
+.ev-avatar.is-gone {
+  background: #9CB5BB;
+}
+
+.ev-badge {
+  margin-left: auto;
+  background: var(--teal);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+.ev-message__icon.is-good {
+  background: var(--mint);
+  color: var(--teal-dark);
+}
+
+/* ================= Part 3: You're in, cancelling ================= */
+
+.ev-in-head {
+  background: var(--teal);
+  padding: 20px 16px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.ev-in-check {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--mint);
+  color: var(--teal-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ev-in-check svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 2.6;
+}
+
+.ev-in-title {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.ev-in-sub {
+  color: var(--border);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.ev-cancel-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.ev-cancel {
+  min-height: 44px;
+  padding: 0 16px;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: #C53030;
+  cursor: pointer;
+}
+
+/* Confirmation dialog */
+.ev-dialog-wrap {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: rgba(11, 34, 39, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.ev-dialog {
+  width: 100%;
+  max-width: 400px;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 24px 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+}
+
+.ev-dialog__title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.ev-dialog__text {
+  margin: 0 0 4px;
+  font-size: 15px;
+  line-height: 22px;
+  color: #4F6D74;
+}
+
+.ev-btn--danger {
+  background: #C53030;
+}
+
+.ev-btn--ghost {
+  background: none;
+  color: var(--teal);
+}
+
+.ev-btn--ghost:hover {
+  color: var(--teal);
+  background: var(--teal-wash);
+}
+
+/* ================= Part 4: Pay page ================= */
+
+.ev-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ev-breakdown > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.ev-breakdown > div > span:first-child {
+  color: #4F6D74;
+}
+
+.ev-breakdown__total {
+  padding-top: 10px;
+  border-top: 1px solid #E8F2F3;
+  font-size: 16px !important;
+  font-weight: 700;
+}
+
+.ev-breakdown__total > span:first-child {
+  color: var(--text) !important;
+}
+
+.ev-rules {
+  background: var(--teal-wash);
+  border-radius: var(--r-card);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ev-rules h2 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--teal);
+}
+
+.ev-rule {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 13px;
+  line-height: 19px;
+}
+
+.ev-rule svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--teal);
+}
+
+.ev-rule.is-warn svg {
+  color: #92400E;
+}
+
+.ev-stripe {
+  min-height: 140px;
+}
+
+.ev-inapp {
+  margin: 0 0 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #FEF3C7;
+  color: #92400E;
+  font-size: 13px;
+  line-height: 19px;
+}
